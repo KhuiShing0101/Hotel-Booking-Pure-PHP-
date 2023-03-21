@@ -89,24 +89,24 @@ function updateQuery($mysqli,$table,$data,$id){
                 return $result;
 } 
 
-    function validateEmpty($data)
-    {
-        $error_message  ='';
-        $error          =false;
-        
-        foreach($data as $key=> $value) {
-            if(trim($value) == ''){
-                $error  = true;
-                $error_message .= $key ."can not be empty <br>";
-            }
-
-        $result = [
-                'error' => $error,
-                'error_message'=> $error_message,
-            ];
+        function validateEmpty($data)
+        {
+            $error_message  ='';
+            $error          =false;
             
-            return $result;
-        }
+            foreach($data as $key=> $value) {
+                if(trim($value) == ''){
+                    $error  = true;
+                    $error_message .= $key ."can not be empty <br>";
+                }
+
+            $result = [
+                    'error' => $error,
+                    'error_message'=> $error_message,
+                ];
+                
+                return $result;
+            }
     }
 
         function validateNameExit($mysqli,$name,$table,$id=null)
