@@ -106,6 +106,8 @@
         $view           = "";
         $extra_bed_price= "";
         $price_per_day  = "";
+        $description    = "";
+        $detail         = "";
     }
   
     
@@ -320,14 +322,14 @@
                                 <div class="item form-group"> 
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="description">Room Description<span class="required">*</span></label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <textarea name="description" id="description" style="width:480px;" rows="4"></textarea>
+                                            <textarea name="description" id="description" style="width:480px;" rows="4"><?php echo $description ?></textarea>
                                         </div>
                                 </div>
 
                                 <div class="item form-group"> 
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="detail">Room Detail<span class="required">*</span></label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <textarea name="detail" id="detail" style="width:480px;" rows="4"></textarea>
+                                            <textarea name="detail" id="detail" style="width:480px;" rows="4"> <?php echo $description ?></textarea>
                                         </div>
                                 </div>
 

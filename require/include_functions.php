@@ -187,4 +187,17 @@ function updateQuery($mysqli,$table,$data,$id){
             }
             return $return;
         }
+
+        function getRoomDetail($mysqli){
+            $sql ="SELECT "  . 
+            " T01.id,T01.name,T01.type,T01.occupancy,T01.size,T01.price_per_day,T01.extra_bed_price_per_day, " .
+            " T02.name as bed_name,T03.name as view_name " .
+            " FROM room T01 LEFT JOIN bed T02 ON " . 
+            " T01.bed_id = T02.id LEFT JOIN view T03 ON T01.view_id=T03.id ". 
+            " WHERE T01.deleted_at IS NULL ";
+
+            $result = $mysqli->query($sql);
+            return $result;
+        }
+       
 ?>
