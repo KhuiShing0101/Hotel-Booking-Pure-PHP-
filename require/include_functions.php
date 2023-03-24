@@ -198,6 +198,52 @@ function updateQuery($mysqli,$table,$data,$id){
 
             $result = $mysqli->query($sql);
             return $result;
+
         }
+
+        function getRoomDetailById($mysqli,$id)
+        {
+            $sql    = " SELECT * FROM `room` WHERE id = ' $id ' ";
+            $result = $mysqli->query($sql);
+            return $result;
+        }
+
+        function getRoomSpecialFeaturesByRoomId($mysqli,$room_id)
+        {
+            $sql    = " SELECT special_features_id FROM `room_special_features_id` WHERE room_id = '$room_id' 
+            AND deleted_at IS NULL ";
+
+            $result = $mysqli->query($sql);
+            $return = [];
+
+            while($row= $result->fetch_array())
+            {
+                array_push( $return,$row['special_features_id']);
+            }
+            return $return;
+        }
+
+        function getRoomAmenitiesByRoomId($mysqli,$room_id)
+        {
+            $sql    = " SELECT amenities_id FROM `room_amenities` WHERE room_id = '$room_id' 
+            AND deleted_at IS NULL ";
+            
+            $result = $mysqli->query($sql);
+            $return = [];
+
+            while($row= $result->fetch_array())
+            {
+                array_push( $return,$row['amenities_id']);
+            }
+            return $return;
+        }
+
+        function hardDelete($mysqli,$table,$room_id){
+            $sql        = "DELETE FROM $table WHERE  room_id='$room_id' ";
+            $result     = $mysqli->query($sql);
+
+            return $result;
+        }
+
        
 ?>
